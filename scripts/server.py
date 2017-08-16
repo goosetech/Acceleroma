@@ -23,9 +23,12 @@ tasks = [
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-@app.route('/', methods=['GET'])
+@app.route('/codeName/x', methods=['GET'])
 def get_tasks():
-    return jsonify({'tasks': tasks})
+    call('fswebcam -r 1920x1080 --no-banner ~/Projects/GooseTech/Accelerom/images/%Y-%m-%d_%H:%M:%S.jpg', shell=True)
+    call('git add -A', shell=True)
+    call('git commit -m "Uploading"', shell=True)
+    call('git push acceleroma master', shell=True)
 	
 #Here's an example of a get attempt from the server
 @app.route('/s/<int:task_id>', methods=['GET'])

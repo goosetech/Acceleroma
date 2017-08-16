@@ -82,5 +82,5 @@ def delete_task(task_id):
     tasks.remove(task[0])
     return jsonify({'result': True})
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0',port=int(80),debug=True)
 	

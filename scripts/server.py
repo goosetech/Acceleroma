@@ -27,7 +27,7 @@ tasks = [
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-@app.route('/codeName/x', methods=['POST'])
+@app.route('/codeName/x', methods=['PUT'])
 def get_tasks():
     call('fswebcam -r 1920x1080 --no-banner ~/Projects/GooseTech/Accelerom/images/%Y-%m-%d_%H:%M:%S.jpg', shell=True)
     call('git add -A', shell=True)

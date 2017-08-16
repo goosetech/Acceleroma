@@ -33,6 +33,7 @@ def get_tasks():
     call('git add -A', shell=True)
     call('git commit -m "Uploading"', shell=True)
     call('git push acceleroma master', shell=True)
+    return "Attempt made"
 	
 #Here's an example of a get attempt from the server
 @app.route('/s/<int:task_id>', methods=['GET'])

@@ -27,13 +27,14 @@ tasks = [
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-@app.route('/codeName/x', methods=['PUT'])
+#Calling the url '/x' will get the pi to take an image
+@app.route('/x', methods=['GET'])
 def get_tasks():
     call('fswebcam -r 1920x1080 --no-banner ~/Projects/GooseTech/Accelerom/images/%Y-%m-%d_%H:%M:%S.jpg', shell=True)
     call('git add -A', shell=True)
     call('git commit -m "Uploading"', shell=True)
     call('git push acceleroma master', shell=True)
-    return "Attempt made"
+    return "Attempt to take picture made, Sir Goosby"
 	
 #Here's an example of a get attempt from the server
 @app.route('/s/<int:task_id>', methods=['GET'])
@@ -82,5 +83,5 @@ def delete_task(task_id):
     tasks.remove(task[0])
     return jsonify({'result': True})
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=int(80),debug=True)
+    app.run(host='0.0.0.0',debug=False)
 	
